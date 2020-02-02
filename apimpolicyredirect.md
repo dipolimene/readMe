@@ -1,4 +1,4 @@
-# readMe
+#APIM Policy to redirect Http request over to Https
 
 <policies>
 <inbound>
