@@ -16,7 +16,7 @@ steps:
     directoryPath: '$(Build.Repository.LocalPath)\Policies'
     json: |
       {
-        "Tenant":"dypola.onmicrosoft.com",
+        "Tenant":"dypola",
         "ProxyIdentityExperienceFrameworkAppId":"17aa3aaf-e622-44dd-990c-fe7f7a5c957d",
         "IdentityExperienceFrameworkAppId":"fa853d55-fb21-4503-a32a-9d82d2842c31"
       }
