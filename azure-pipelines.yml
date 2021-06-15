@@ -1,0 +1,29 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: 'windows-latest'
+
+steps:
+- task: B2CBuildTask@1
+
+  inputs:
+    directoryPath: '$(Build.Repository.LocalPath)\Policies'
+    json: |
+      {
+        "Tenant":"dypola.onmicrosoft.com",
+        "ProxyIdentityExperienceFrameworkAppId":"17aa3aaf-e622-44dd-990c-fe7f7a5c957d",
+        "IdentityExperienceFrameworkAppId":"fa853d55-fb21-4503-a32a-9d82d2842c31"
+      }
+    artifactPublishPath: '$(Build.ArtifactStagingDirectory)'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
